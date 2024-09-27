@@ -1,8 +1,8 @@
-package controller;
+package bai1.controller;
 
-import model.Student;
-import service.IStudentService;
-import service.imt.StudentService;
+import bai1.model.Student;
+import bai1.service.IStudentService;
+import bai1.service.imt.StudentService;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -19,7 +19,7 @@ public class StudentController extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         List<Student> students = studentService.getAllStudents();
         request.setAttribute("students", students);
-        request.getRequestDispatcher("/studentList.jsp").forward(request, response);
+        request.getRequestDispatcher("/view/StudentList.jsp").forward(request, response);
         response.setContentType("text/html;charset=UTF-8");
         request.setCharacterEncoding("utf-8");
     }

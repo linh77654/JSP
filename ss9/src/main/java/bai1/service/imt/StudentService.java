@@ -1,9 +1,9 @@
-package service.imt;
+package bai1.service.imt;
 
-import repository.IStudentRepository;
-import repository.imt.StudentRepository;
-import service.IStudentService;
-import model.Student;
+import bai1.repository.IStudentRepository;
+import bai1.repository.imt.StudentRepository;
+import bai1.service.IStudentService;
+import bai1.model.Student;
 
 import java.util.List;
 

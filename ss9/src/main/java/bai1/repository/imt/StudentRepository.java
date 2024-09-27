@@ -1,7 +1,7 @@
-package repository.imt;
+package bai1.repository.imt;
 
-import model.Student;
-import repository.IStudentRepository;
+import bai1.model.Student;
+import bai1.repository.IStudentRepository;
 
 import java.util.ArrayList;
 import java.util.List;

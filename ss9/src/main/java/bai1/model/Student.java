@@ -1,4 +1,4 @@
-package model;
+package bai1.model;
 
 public class Student {
     private int id;
