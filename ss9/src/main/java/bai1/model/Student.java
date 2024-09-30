@@ -13,6 +13,11 @@ public class Student {
         this.classID = classID;
     }
 
+    public Student(String name, String classID) {
+        this.name = name;
+        this.classID = classID;
+    }
+
     public int getId() {
         return id;
     }

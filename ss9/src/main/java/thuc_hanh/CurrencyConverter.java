@@ -1,4 +1,4 @@
-package bai1.controller;
+package thuc_hanh;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
