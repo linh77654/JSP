@@ -9,8 +9,8 @@
 <form method="post" action="/Student?action=edit&id=<%= student.getId() %>">
   <label for="name">Tên:</label>
   <input id="name" name="name" value="<%= student.getName() %>">
-  <label for="classID">Mã lớp:</label>
-  <input id="classID" name="classID" value="<%= student.getClassID() %>">
+  <label for="address">Mã lớp:</label>
+  <input id="address" name="address" value="<%= student.getAddress() %>">
   <button type="submit">Cập nhật</button>
 </form>
 

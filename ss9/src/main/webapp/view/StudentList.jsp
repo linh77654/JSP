@@ -28,16 +28,13 @@
     </thead>
     <tbody>
     <c:forEach items="${students}" var="student" varStatus="temp">
-        <tr>
-            <td>${temp.count}</td>
-            <td>${student.id}</td>
-            <td>${student.name}</td>
-            <td>${student.classID}</td>
-            <td>
-                <a href="/Student?action=edit&id=${student.id}">Sửa</a>
-                <a href="/Student?action=delete&id=${student.id}">Xoá</a>
-            </td>
-        </tr>
+    <tr>
+        <td>${temp.count}</td>
+        <td>${student.name}</td>
+        <td>${student.address}</td>
+        <td>
+            <a href="/Student?action=edit&id=${student.id}">Sửa</a>
+            <a href="/Student?action=delete&id=${student.id}">Xoá</a>
     </c:forEach>
     </tbody>
 </table>

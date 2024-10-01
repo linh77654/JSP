@@ -2,7 +2,7 @@ package bai1.controller;
 
 import bai1.model.Student;
 import bai1.service.IStudentService;
-import bai1.service.imt.StudentService;
+import bai1.service.impl.StudentService;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -42,7 +42,6 @@ public class StudentController extends HttpServlet {
             default:
                 List<Student> students = studentService.getAll();
                 request.setAttribute("students", students);
-                request.setAttribute("nameClass", "C0624G1");
                 request.getRequestDispatcher("/view/StudentList.jsp").forward(request, response);
                 break;
         }
@@ -59,54 +58,42 @@ public class StudentController extends HttpServlet {
         switch (action) {
             case "create":
                 String name = req.getParameter("name");
-                String classID = req.getParameter("classID");
+                String address = req.getParameter("address");
 
                 if (name == null || name.trim().isEmpty()) {
                     req.setAttribute("error", "Tên không được để trống");
                     req.getRequestDispatcher("/view/Create.jsp").forward(req, resp);
                     return;
                 }
-                if (classID == null || classID.trim().isEmpty()) {
-                    req.setAttribute("error", "Mã lớp không được để trống");
+                if (address == null || address.trim().isEmpty()) {
+                    req.setAttribute("error", "Địa chỉ không được để trống");
                     req.getRequestDispatcher("/view/Create.jsp").forward(req, resp);
                     return;
                 }
 
-                Student student = new Student(name, classID);
+                Student student = new Student(0, name, address);
                 studentService.add(student);
                 resp.sendRedirect(req.getContextPath() + "/Student");
                 break;
             case "edit":
                 int id = Integer.parseInt(req.getParameter("id"));
                 String newName = req.getParameter("name");
-                String newClassID = req.getParameter("classID");
+                String newAddress = req.getParameter("address");
 
                 if (newName == null || newName.trim().isEmpty()) {
                     req.setAttribute("error", "Tên không được để trống");
                     req.getRequestDispatcher("/view/Edit.jsp").forward(req, resp);
                     return;
                 }
-                if (newClassID == null || newClassID.trim().isEmpty()) {
-                    req.setAttribute("error", "Mã lớp không được để trống");
+                if (newAddress == null || newAddress.trim().isEmpty()) {
+                    req.setAttribute("error", "Địa chỉ không được để trống");
                     req.getRequestDispatcher("/view/Edit.jsp").forward(req, resp);
                     return;
                 }
 
-                Student updatedStudent = new Student(id, newName, newClassID);
+                Student updatedStudent = new Student(id, newName, newAddress);
                 studentService.update(id, updatedStudent);
                 resp.sendRedirect(req.getContextPath() + "/Student");
-                break;
-            case "delete":
-                int idToDelete = Integer.parseInt(req.getParameter("id"));
-                try {
-                    studentService.delete(idToDelete);
-                    resp.sendRedirect(req.getContextPath() + "/Student");
-                } catch (Exception e) {
-                    req.setAttribute("error", "Không thể xóa sinh viên. Vui lòng thử lại.");
-                    List<Student> students = studentService.getAll();
-                    req.setAttribute("students", students);
-                    req.getRequestDispatcher("/view/StudentList.jsp").forward(req, resp);
-                }
                 break;
         }
     }

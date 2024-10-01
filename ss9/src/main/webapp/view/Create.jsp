@@ -27,12 +27,12 @@
     <div style="color: red;">${error}</div>
 </c:if>
 
-<form name="studentForm" method="post" action="/students?action=create" onsubmit="return validateForm()">
+<form name="studentForm" method="post" action="/Student?action=create" onsubmit="return validateForm()">
     <label for="name">Tên:</label>
-    <input type="text" id="name" name="name">
+    <input type="text" id="name" name="name" required>
     <br>
-    <label for="classID">Mã lớp:</label>
-    <input type="text" id="classID" name="classID">
+    <label for="address">Mã lớp:</label>
+    <input type="text" id="address" name="address">
     <br>
     <button type="submit">Thêm mới</button>
 </form>

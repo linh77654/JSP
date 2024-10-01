@@ -3,19 +3,14 @@ package bai1.model;
 public class Student {
     private int id;
     private String name;
-    private String classID;
+    private String address;
 
     public Student() {}
 
-    public Student(int id, String name, String classID) {
+    public Student(int id, String name, String address) {
         this.id = id;
         this.name = name;
-        this.classID = classID;
-    }
-
-    public Student(String name, String classID) {
-        this.name = name;
-        this.classID = classID;
+        this.address = address;
     }
 
     public int getId() {
@@ -34,11 +29,11 @@ public class Student {
         this.name = name;
     }
 
-    public String getClassID() {
-        return classID;
+    public String getAddress() {
+        return address;
     }
 
-    public void setClassID(String classID) {
-        this.classID = classID;
+    public void setAddress(String address) {
+        this.address = address;
     }
 }
